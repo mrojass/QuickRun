@@ -1,31 +1,68 @@
 <html ng-app="QuickRun">
-  <head>
+<head>
     <meta charset=utf-8 />
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js'></script>
     <script src="main.js"> </script>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.2.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.2.1/mapbox-gl.js'></script>
     <style>
-      body { margin:0; padding:0; }
-      #map { position:absolute; top:0; bottom:0; width:100%; }
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
-  </head>
-  <body>
-    
-    <h1>Quick Run</h1>
-    <div class="navigation" ng-app="navlist">
-        <ul class="nav nav-list" ng-controller="navCtrl">
-          <li ng-class="navClass('task')"><a href="/task.html">Tasks</a></li>
-          <li ng-class="navClass('routes')"><a href="/map.html">Routes</a></li>
-        </ul>
-    </div>
-    <div ng-Controller="MapController">
-      <script>
+    <script>
+        var lat = 0;
+        var long = 0;
+        var map;
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+
+        function success(pos) {
+            var crd = pos.coords;
+            lat = crd.latitude;
+            long = crd.longitude;
+            map = L.mapbox.map('map', 'mrojass.jico4ji5')
+                    .setView([lat, long], 18);
+        };
+        function error(err) {
+            console.warn('ERROR(' + err.code + '): ' + err.message);
+        };
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    </script>
+</head>
+<body>
+
+<h1>Quick Run</h1>
+<div class="navigation" ng-app="navlist">
+    <ul class="nav nav-list" ng-controller="navCtrl">
+        <li ng-class="navClass('task')"><a href="/task.html">Tasks</a></li>
+        <li ng-class="navClass('routes')"><a href="/map.html">Routes</a></li>
+    </ul>
+</div>
+<div id="map">
+</div>
+<div ng-Controller="MapController">
+    <script>
         // Provide your access token
         L.mapbox.accessToken = 'pk.eyJ1IjoibXJvamFzcyIsImEiOiJXVVB2S2E4In0.5ZxLri7Viyrpzj4E9fHlbw';
         // Create a map in the div #map
-        var map = L.mapbox.map('map', 'mrojass.ji4d5m6e').setView([40, -74.50], 9);
-      </script>
-  </body>
+        //var map = L.mapbox.map('map', 'mrojass.ji4d5m6e').setView([40, -74.50], 9);
+
+
+    </script>
+
+</div>
+
+</body>
 </html>
