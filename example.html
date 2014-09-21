@@ -8,14 +8,13 @@
   </head>
 
   <body ng-controller="ExampleCtrl">
-    {{ 10+6 }}
     <h1>Task List</h1>
     
     <fieldset>
       <legend>Create Task</legend>
     <input type="text" ng-model="job" placeholder="Job" ><br />
     <input type="text" ng-model="location" placeholder="Location" ><br />
-    <input type="text" ng-model="deadline" placeholder="Deadline" ><br />
+    <input type="time" ng-model="deadline" placeholder="Deadline" ><br />
     <button type="button" ng-click="addTask()">Add Task</button>
     </fieldset>
     
@@ -23,13 +22,13 @@
       <thead>
         <tr>
           <th>
-            Name
+            Job
           </th>
           <th>
-            Age
+            Location
           </th>
           <th>
-            Title
+            Deadline
           </th>
           <th>
            
