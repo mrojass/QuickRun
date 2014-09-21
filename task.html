@@ -1,27 +1,54 @@
 <html ng-app="QuickRun">
   <head>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js'></script>
-    <script src="main.js"> </script>
   </head>
   <body>
     
-    <h1>QuickRun App</h1>
+    <h1>Quick Run</h1>
     <div class="navigation" ng-app="navlist">
         <ul class="nav nav-list" ng-controller="navCtrl">
-          <li ng-class="navClass('task')"><a href="/task.html">Tasks</a></li>
-          <li ng-class="navClass('routes')"><a href="/map.html">Routes</a></li>
+          <li ng-class="navClass('task')"><a href="task.html">Tasks</a></li>
+          <li ng-class="navClass('routes')"><a href="map.html">Routes</a></li>
         </ul>
     </div>
-    <div ng-Controller="TaskController">
-      <div ng-repeat="item in errands">
-          <form novalidate class="task-input-form">
-            Task Description: <input type="text" ng-model="task.name"/>
-            Location: <input type="text" ng-model="task.address" />
-            Deadline: <input type="time" ng-model="task.deadline" />
-            <button ng-click="update(errand)">Submit</button>
+    <div id="taskinput" ng-controller="TaskController">
+
+      <table class="tabletask" style="border: 1px solid black">
+      <thead>
+        <tr>
+          <td> Tasks </td>
+        </tr>
+      </thead>
+      <tr> ng-repeat="task in tasks">
+        <td> {{$index+1}} </td>
+        <td> {{task.name}} </td>
+        <td> {{task.address}} <button>Show in map</button></td>
+        <td> {{task.deadline}} </td>
+      </tr>
+
+      </tr>
+      <div class="form-group" data-ng-repeat="task in tasks">
+          <form novalidate class="task-input-form" ng-submit="addTask()">
+            <h2>Please input your tasks here: </h2>
+            <label>Task Description: </label><input type="text" ng-model="task.name"/>
+            <label>Location: </label><input type="text" ng-model="task.address" />
+            <label>Deadline: </label><input type="time" ng-model="task.deadline" />
           </form>
-          <button ng-click="add()">Add Errand</button>
+          <input type="submit" class="inputbutton">Add Task</input>
       </div>
+      <script type="text/javascript">
+        var QuickRun = angular.module=("QuickRun", ["firebase"]);
+
+        function TaskController($scope) {
+          $scope.tasks = [];
+          var someTask = $scope.tasks;
+          $scope.addTask = function () {
+            var newTask = $scope.task
+          }
+
+          var  
+        }
+      </script>
     <div>
   </body>
 </html>
