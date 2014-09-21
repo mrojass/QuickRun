@@ -1,0 +1,14 @@
+ html {
+        background-color:#959393;
+        background-repeat: no-repeat;
+        background-position: left center;
+        width:100%;
+        height:100%;
+        background-image:url("Quick Run Logo.png");
+        background-size: 29%;
+      }
+  body {
+        margin: 0px auto;
+        width: 50%;
+  }
+
