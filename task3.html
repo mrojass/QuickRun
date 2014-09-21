@@ -1,23 +1,8 @@
 <html ng-app="QuickRun">
   <head>
         <title>Tasks</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
-        <script type="text/javascript">
-        var QuickRun = angular.module=("QuickRun", ["firebase"]);
-
-        function TaskController($scope) {
-          $scope.tasks = [];
-          var someTask = $scope.tasks;
-          $scope.addTask = function () ,{
-            var newTask = $scope.task;
-            var oldTask;
-
-            angular.forEach($scope.task, function(eachtask) {
-              someTask.push(newTask);
-            })
-          }
-        }
-      </script>
+        <script data-require="angular.js@1.2.9" data-semver="1.2.9" src="http://code.angularjs.org/1.2.9/angular.js"></script>
+        <script src="script.js"></script>
 
       <style>
       td { border: 1px solid black; }
@@ -34,7 +19,7 @@
           <li ng-class="navClass('routes')"><a href="map.html">Routes</a></li>
         </ul>
     </div>
-    <div id="taskinput" ng-controller="TaskController">
+    <div id="taskinput">
 
 
 <div class="row">

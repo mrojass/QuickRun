@@ -1,0 +1,76 @@
+<html ng-app="QuickRun">
+  <head>
+        <title>Tasks</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+        <script type="text/javascript" src="task.js"></script> 
+        <script type="text/javascript">
+        /*var QuickRun = angular.module=("QuickRun", ["firebase"]);
+
+        function TaskController($scope) {
+          $scope.tasks = [];
+          var someTask = $scope.tasks;
+          $scope.addTask = function () {
+            var newTask = $scope.task;
+            var oldTask;
+
+            angular.forEach($scope.task, function(eachtask) {
+              someTask.push(newTask);
+            })
+          }
+        }*/
+      </script>
+
+      <style>
+      td { border: 1px solid black; }
+      li { display: inline; }
+      </style>
+
+  </head>
+  <body>
+    
+    <h1 style="text-align:center">Quick Run</h1>
+    <div class="navigation" ng-app="navlist">
+        <ul class="nav nav-list" ng-controller="navCtrl">
+          <li ng-class="navClass('task')"><a href="task.html">Tasks</a></li>
+          <li ng-class="navClass('routes')"><a href="map.html">Routes</a></li>
+        </ul>
+    </div>
+    <div id="taskinput" ng-controller="TaskController">
+
+      <table class="tabletask" style="border: 1px solid black">
+      <thead>
+        <tr>
+          <th> Tasks </th>
+        </tr>
+        <tr> 
+          <th>ID</th>
+          <th>Description</th>
+          <th>Address</th>
+          <th>Deadline</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr data-ng-repeat="task in tasks">
+        <td>{{$index+1}}</td>
+        <td>{{task.name}}</td>
+        <td>{{task.address}}<button>Show in map</button></td>
+        <td>{{task.deadline}}</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+      <div class="form-group">
+            <h2>Please input your tasks here: </h2>
+            <label>Task Description: </label><input type="text" ng-model="task.name" name="description" />
+            <label>Location: </label><input type="text" ng-model="task.address" name="address"/>
+            <label>Deadline: </label><input type="time" ng-model="task.deadline" name="deadline"/>
+            <input type="button" class="inputbutton" value="+" addrow/>
+      </div>
+    </tr>
+  </tbody>
+    </table>
+    </div>
+  </body>
+</html>

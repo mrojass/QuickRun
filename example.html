@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app>
+
+  <head>
+    <script data-require="angular.js@1.2.9" data-semver="1.2.9" src="http://code.angularjs.org/1.2.9/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="ExampleCtrl">
+    {{ 10+6 }}
+    <h1>Task List</h1>
+    
+    <fieldset>
+      <legend>Create Task</legend>
+    <input type="text" ng-model="job" placeholder="Job" ><br />
+    <input type="text" ng-model="location" placeholder="Location" ><br />
+    <input type="text" ng-model="deadline" placeholder="Deadline" ><br />
+    <button type="button" ng-click="addTask()">Add Task</button>
+    </fieldset>
+    
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            Title
+          </th>
+          <th>
+           
+          </th>
+        </tr>
+      </thead>
+      <body>
+        <tr ng-repeat="task in tasks">
+          <td>
+            {{ task.job }}
+          </td>
+          <td>
+            {{ task.location }}
+          </td>
+          <td>
+            {{ task.deadline }}
+          </td>
+          <td>
+             <button type="button" ng-click="removeTask($index)">Remove Task</button>
+          </td>
+         
+        </tr>
+      </body>
+    </table>
+    
+  </body>
+
+</html>
