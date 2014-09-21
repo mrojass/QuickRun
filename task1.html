@@ -1,5 +1,9 @@
 <html ng-app="QuickRun">
   <head>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="style.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js'></script>
+=======
         <title>Tasks</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
         <script type="text/javascript">
@@ -17,15 +21,16 @@
             })
           }
         }
-      </script>
+      </script> b.
 
       <style>
       td { border: 1px solid black; }
       li { display: inline; }
       </style>
 
+>>>>>>> origin/master
   </head>
-  <body ng-controller="TaskController">
+  <body>
     
     <h1 style="text-align:center">Quick Run</h1>
     <div class="navigation" ng-app="navlist">
@@ -36,53 +41,6 @@
     </div>
     <div id="taskinput" ng-controller="TaskController">
 
-<<<<<<< HEAD
-<div class="row">
-      <input type="text" ng-model="job" placeholder="task" />        
-      <input type="text" ng-model="location" placeholder="location" />
-      <input type="text" ng-model="deadline" placeholder="deadline" />
-      <button type="button" ng-click="addTask()">Add Task</button>
-</div>
-      
-    <table border="1" cellpadding="10">
-       <thead>
-         <tr>
-           <th>
-              Task
-           </th>
-           <th>
-              Location
-          </th>
-          <th>
-              Deadline
-          </th>
-          <th>
-
-          </th>
-        </tr>
-      </thead>
-      <body>
-         <tr ng-repeat="task in tasks">
-           <td>
-             {{ task.job }}
-          </td>
-          <td>
-             {{ task.location }}
-          </td>
-          <td>
-             {{ task.deadline }}
-          </td>
-          <td>
-             <button type="button" ng-click="removeTask($index)">Remove Task</button>
-          </td>
-        </tr>
-      </body>
-    </table>
-      <script type="text/javascript">
-        var QuickRun = angular.module=("QuickRun", ["firebase"]);
-
-      </script>
-=======
       <table class="tabletask" style="border: 1px solid black">
       <thead>
         <tr>
@@ -111,7 +69,6 @@
             <label>Deadline: </label><input type="time" ng-model="task.deadline" />
             <input type="submit" class="inputbutton" value="Add Task"/>
       </div>
->>>>>>> dff7324a45dc5b778c140aa1eeb2620e5a02a529
     <div>
   </body>
 </html>
