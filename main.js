@@ -9,5 +9,4 @@ var TaskController = function($scope) {
 		$scope.tasks.push(task);
 	};
 
-
 }
